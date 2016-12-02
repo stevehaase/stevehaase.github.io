@@ -17,10 +17,11 @@
 		<div>
 		Hello World
 			<form cf-form-element action="/post">
-				<input type="text" name="fullname" label="Your Full Name">
-				<input type="radio" name="gender" value="male">
-				<input type="radio" name="gender" value="female">
-				<input type="radio" name="gender" value="other">
+				<label>Your Full Name <input type="text" name="fullname"></label>
+				<label>Gender</label>
+					<label for="male">Male <input type="radio" name="gender" id="male"></label>
+					<label for="female">Female <input type="radio" name="gender" id="female">
+					<label for="other">Other <input type="radio" name="gender" id="other"></label>
 				<input type="submit" value="Submit">
 			</form>
 		</div>
