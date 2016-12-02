@@ -13,14 +13,24 @@
 		
 	</head>
 	<body>
+	<script>
+	new cf.ConversationalForm({
+	    formEl: <HTMLFormElement>,
+	    // dictionaryData?: {}, // empty will throw error, see Dictionaty.ts for values
+	    // dictionaryAI?: {}, // empty will throw error, see Dictionaty.ts for values
+	    // context?: // context of where to append the ConversationalForm (see also cf-context attribute)
+	    // tags?: tags, // pass in custom tags (when prevent the auto-instantiation of ConversationalForm)
+	    // submitCallback?: () => void | HTMLButtonElement // custom submit callback if button[type=submit] || form.submit() is not wanted..
+	    // userImage: "..." //base64 || image url
+	});
+	</script>
 		<div>
 		Hello World
 			<form cf-form-element action="/post">
-				<label>Your Full Name <input type="text" name="fullname"></label><br/>
-				<label>Gender</label><br/>
-					<label for="male">Male <input type="radio" name="gender" id="male"></label><br/>
-					<label for="female">Female <input type="radio" name="gender" id="female"><br/>
-					<label for="other">Other <input type="radio" name="gender" id="other"></label><br/>
+				<input type="text" cf-questions="What is your name?|Please tell me your name." name="fullname"></label><br/>
+				<input cf-label="Male" type="radio" name="gender" id="male">
+				<input cf-label="Female" type="radio" name="gender" id="female">
+				<input cf-label="Other" type="radio" name="gender" id="other">
 				<input type="submit" value="Submit">
 			</form>
 		</div>
