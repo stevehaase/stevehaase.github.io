@@ -1,1 +1,18 @@
-Hello World
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Testing conversational forms</title>
+		<script type="text/javascript" src="https://rawgit.com/space10-community/conversational-form/master/dist/conversational-form.min.js" crossorigin></script>
+	</head>
+	<body>
+	Hello World
+		<form cf-form-element action="/post">
+			<input type="text" name="fullname" label="Your Full Name">
+			<input type="radio" name="gender" value="male">
+			<input type="radio" name="gender" value="female">
+			<input type="radio" name="gender" value="other">
+			<input type="submit" value="Submit">
+		</form>
+	</body>
+</html>
