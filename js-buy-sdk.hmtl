@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="http://sdks.shopifycdn.com/js-buy-sdk/v0/latest/shopify-buy.umd.polyfilled.min.js"></script>
+		<script>
+			var shopClient = ShopifyBuy.buildClient({
+			  apiKey: 'eba3d7d069f3c5b2b5bd2fb551d32f48',
+			  domain: 'titanplus.myshopify.com',
+			  appId: '6'
+			});
+		</script>
+		<style>
+			.product {
+			  padding: 30px;
+			}
+
+			.product__buy {
+			  background: #7ab55c;
+			  padding: 0.5625em 1.875em;
+			  color: white;
+			  text-decoration: none;
+			  border-radius: 3px;
+			  display: inline-block;
+			}
+
+			.product__buy:hover {
+			  text-decoration: none;
+			  background: #6aa74c;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="product" id="product-1"></div>
+
+		<script>
+		shopClient.fetchProduct('5401596487')
+				.then(function(product){
+					console.log(product);	
+					var html =
+					  "<img class='product__image' src='" + product.selectedVariantImage.src + "' >" +
+					  "<h2 class='product__title'>" + product.title + "</h2>" +
+					  "<a class='product__buy' href='" +
+					    product.selectedVariant.checkoutUrl(1) +
+					  "'>Buy Now!</a>";
+					document.querySelector('#product-1').innerHTML = html;
+				})
+				.catch(function(e){
+					console.log('Request failed', e);
+				});
+		</script>
+	</body>
+</html>
